@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+ background-color: white;
+}
+
+.banner {
+  height: 220px;
+  margin: 15px;
+  margin-left: 80px;
+  margin-right: 80px;
+  background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}
+
+.topnav {
+  overflow: hidden;
+  
+  background-color: rgb(236, 111, 9);
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+.footer {
+  background-color:rgb(236, 111, 9);
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(245, 237, 237, 0.2);
+  transition: 0.3s;
+  width: 210px;
+  height: 200px;
+  text-align: center;
+  flex: 1;
+    margin: 20px;
+    background: white;
+    border: 1px solid #fcf7f7;
+    box-sizing: border-box;
+  
+    padding: 10px;
+
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.container {
+    display: flex;
+    background-color:rgb(236, 226, 226);
+    margin-bottom: 10px;
+}
+
+.column-one {
+    order: 3;
+}
+.column-two {
+    order: 1;
+}
+.column-three {
+    order: 4;
+}
+.column-four {
+    order: 2;
+}
+
+.button {
+  background-color: rgb(38, 212, 235); /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 6px 15px;
+}
