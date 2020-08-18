@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {getCurrentUser } from '../../actions/authActions'
 import { getExpList, getIncList, totalInc, totalExp } from '../../actions/budgetActions'
+import{getStatement} from '../../actions/statementActions'
 import IncomeList from './IncomeList'
 import ExpList from './ExpList'
 import Form from './Form'
@@ -16,6 +17,7 @@ class Dashboard extends Component {
       this.props.totalInc()
       this.props.totalExp()
       this.props.getExpList()
+      this.props.getStatement()
       this.props.getCurrentUser()
      }
 
@@ -54,5 +56,6 @@ export default connect(null,{
      getIncList,
      totalInc,
      totalExp,
+     getStatement,
      getCurrentUser
 })(Dashboard)

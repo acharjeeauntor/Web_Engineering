@@ -5,8 +5,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   method: {
     type: String,
-    // enum: ["local", "google", "facebook"],
-    enum: ["local"],
+    enum: ["local", "google", "facebook"],
     required: true
   },
   local: {
@@ -26,7 +25,36 @@ const userSchema = new Schema({
     resetToken: String,
     resetTokenExpiration:Date
   },
-
+  google: {
+    id: {
+      type: String
+    },
+    email: {
+      type: String,
+      lowercase: true
+    },
+    avatar: {
+      type: String
+    },
+    name: {
+      type:String
+    }
+  },
+  facebook: {
+    id: {
+      type: String
+    },
+    email: {
+      type: String,
+      lowercase: true
+    },
+    name: {
+      type:String
+    },
+    avatar: {
+      type: String
+    }
+  }
 });
 
 // Create a model

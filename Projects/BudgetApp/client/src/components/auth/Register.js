@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { registerUser } from '../../actions/authActions'
+import Social from '../layout/Social'
 //import PropTypes from 'prop-types'
 import TextFieldGroup from '../common/TextFieldGroup'
 import ShowError from '../common/ShowError'
@@ -92,7 +93,7 @@ onSubmit=(e)=>{
                     </form>
                <p style={{ textAlign: 'center', marginTop: "10px" }}>Already have an account? <Link to="/login">Sign In</Link></p>  
             <div className="ml-2">
-          
+          <Social />
                </div>
         </div>
       </div>

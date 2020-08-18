@@ -13,6 +13,18 @@ router.post("/resetpassword", userController.resetPassword);
 
 router.post("/reset/setnewpassword", userController.setNewPassword);
 
+router.post(
+  "/oauth/google",
+  passport.authenticate("google", { session: false }),
+  userController.googleOAuth
+);
+
+router.post(
+  "/oauth/facebook",
+  passport.authenticate("facebook", { session: false }),
+  userController.facebookOAuth
+);
+
 router.get(
   "/dashboard",
   passport.authenticate("jwt", { session: false }),

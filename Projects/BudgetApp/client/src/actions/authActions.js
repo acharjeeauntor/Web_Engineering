@@ -41,6 +41,48 @@ export const loginUser = (userData) => dispatch => {
 }
 
 
+export const oauthGoogle = (data,history) =>dispatch=> {
+     axios.post('/users/oauth/google', {
+          access_token:data
+     })
+       .then(res => {     
+         //save to local storage
+      const { token } = res.data
+      //set token to LS
+      localStorage.setItem('jwtToken', token)
+      //set token to auth header
+         setAuthToken(token)
+         
+               dispatch({
+               type: AUTH_LOGIN,
+               payload:token
+               })
+               history.push('/dashboard')
+       })
+     .catch(err=>console.log(err))
+}
+
+export const oauthFacebook = (data,history) =>dispatch=> {
+     axios.post('/users/oauth/facebook', {
+          access_token:data
+     })
+          .then(res => {     
+         //save to local storage
+      const { token } = res.data
+      //set token to LS
+      localStorage.setItem('jwtToken', token)
+      //set token to auth header
+         setAuthToken(token)
+         
+               dispatch({
+               type: AUTH_LOGIN,
+               payload:token
+               })
+               history.push('/dashboard')
+       })
+     .catch(err=>console.log(err))
+}
+
 
 export const currentUser = (data) =>dispatch=> {
      dispatch({

@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 //import PropTypes from 'prop-types'
 import { loginUser } from '../../actions/authActions'
 import TextFieldGroup from '../common/TextFieldGroup'
+import Social from '../layout/Social'
 import ShowError from '../common/ShowError'
 import './auth.css'
 
@@ -76,7 +77,7 @@ class Login extends Component {
        <Link to="/resetpassword">Forget Password</Link> 
               <p style={{ textAlign: 'center', marginTop: "10px" }}>Don’t have an account? <Link to="/register">Sign Up</Link></p>                      
             <div className="ml-2">
-          
+          <Social />
                </div>              
                                    
                                    </div>

@@ -9,11 +9,13 @@ import Register from './components/auth/Register'
 import Dashboard from './components/mainSection/Dashboard'
 import NotFound from './components/common/NotFound'
 import SendMailMessage from './components/resetPassword/SendMailMessage'
+import Statement from './components/mainSection/Statement'
 import ChangePassword from './components/mainSection/ChangePassword'
 import NewPassword from './components/resetPassword/NewPassword'
 import AccountInfo from './components/mainSection/AccountInfo'
 import setAuthToken from './utils/setAuthToken';
 import { logOut, currentUser } from './actions/authActions' 
+import{addStatement} from './actions/statementActions'
 import store from './store'
 import authGourd from './components/HOCS/authGuard'
 import ResetPass from './components/resetPassword/ResetPass'
@@ -37,13 +39,13 @@ if (jwtToken) {
 }
     
 
-// //Store statement
-// var now = new Date()
-// var localTime = now.toLocaleTimeString()
-// if (localTime >= "11:59:57 PM" && localTime <= "11:59:59 PM"){
-//   store.dispatch(addStatement())
-//   store.dispatch(logOut())
-//     }
+//Store statement
+var now = new Date()
+var localTime = now.toLocaleTimeString()
+if (localTime >= "11:59:57 PM" && localTime <= "11:59:59 PM"){
+  store.dispatch(addStatement())
+  store.dispatch(logOut())
+    }
 
 
 class App extends Component{
@@ -55,6 +57,7 @@ class App extends Component{
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={authGourd(Dashboard)} />
+          <Route exact path="/statement" component={authGourd(Statement)} />
           <Route exact path="/changepassword" component={authGourd(ChangePassword)} />
           <Route exact path="/myaccount" component={authGourd(AccountInfo)} />
           <Route exact path="/resetpassword" component={ResetPass} />

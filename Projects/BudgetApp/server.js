@@ -21,6 +21,7 @@ mongoose
 app.use("/users", require("./routes/Users"));
 app.use("/budget/income", require("./routes/budget/Income"));
 app.use("/budget/exp", require("./routes/budget/Exp"));
+app.use("/statement", require("./routes/Statement"));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server run on port ${port}`));

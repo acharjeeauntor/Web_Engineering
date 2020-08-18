@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Social from './Social'
 import './Landing.css'
 const Landing = () => {
      return (
@@ -9,9 +10,8 @@ const Landing = () => {
           <div className="login">
                     <Link to="/register" className="btn btn-lg btn-secondary mr-2">Sign Up</Link>
                               <Link to="/login" className="btn btn-lg btn-secondary">Sign In</Link>
-                              <p>Sign in by Social Media account</p>
                               </div>
-                       
+                       <Social />
   </div>
                </div>
                </div>

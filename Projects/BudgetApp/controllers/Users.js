@@ -117,6 +117,17 @@ exports.loginUser = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+exports.googleOAuth = (req, res) => {
+  // Generate token
+  const token = signToken(req.user);
+  res.status(200).json({ token });
+};
+
+exports.facebookOAuth = (req, res) => {
+  // Generate token
+  const token = signToken(req.user);
+  res.status(200).json({ token });
+};
 
 exports.getDashboard = (req, res) => {
   res.json({ userId: req.user.id, success: true });
@@ -124,8 +135,7 @@ exports.getDashboard = (req, res) => {
 
 //for current user login
 exports.loginCurrentUser = (req, res) => {
-  //const { local, google, facebook } = req.user;
-  const { local} = req.user;
+  const { local, google, facebook } = req.user;
   if (JSON.stringify(local) !== "{}") {
     return res.json({
       name: local.name,
@@ -133,8 +143,21 @@ exports.loginCurrentUser = (req, res) => {
       avatar: local.avatar,
       type: "local"
     });
-   }
-   
+  } else if (JSON.stringify(google) !== "{}") {
+    return res.json({
+      name: google.name,
+      email: google.email,
+      avatar: google.avatar,
+      type: "google"
+    });
+  } else if (JSON.stringify(facebook) !== "{}") {
+    return res.json({
+      name: facebook.name,
+      email: facebook.email,
+      avatar: facebook.avatar,
+      type: "facebook"
+    });
+  }
 };
 
 exports.changePassword = (req, res) => {
